@@ -26,14 +26,14 @@ Things you may want to cover:
 
 |Column                      |Type      |Options                 |
 |--------------------------  |------- |------------------------- |
-| nickname        　         | string　| null:false　　　　　　　　  |
-| encrypted_password         | string | null:false               |
-| email                      | string | null:false,, unique: true|
-| date_of_birth              | date   | null:false               |
-| double_byte_first_name     | string | null:false               |
-| double_byte_last_name      | string | null:false               |
-| double_byte_first_name_kana| string | null:false               |
-| double_byte_last_name_kana | string | null: false              |
+| nickname        　         | string　| null: false　　　　　　　　  |
+| encrypted_password         | string | null: false               | 
+| email                      | string | null: false, unique: true |
+| date_of_birth              | date   | null: false               |
+| double_byte_first_name     | string | null: false               |
+| double_byte_last_name      | string | null: false               |
+| double_byte_first_name_kana| string | null: false               |
+| double_byte_last_name_kana | string | null: false               |
 
 ###アソシエーション
 has_many :items
@@ -71,7 +71,7 @@ has_one :address
 ## addressesテーブル
 |Column            |Type    |Options                            |
 |----------------- |----------- |------------------------------ |
-| municipality     | string     | null:false,                   |
+| municipality     | string     | null:false                    |
 | area_of_origin_id| integer    | null:false                    |
 | address          | string     | null:false                    |
 | post_code        | string     | null:false                    | 
