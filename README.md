@@ -24,34 +24,36 @@ Things you may want to cover:
 * ...
 ## usersテーブル
 
-|Column            |Type    |Options                   |
-|----------------- |------- |------------------------- |
-| nickname         | string | null:false, unique: true |
-| password         | string | null:false               |
-| email            | string | null:false               |
-| confirm password | string | null:false               | 
-| date of birth    | string | null:false               |
-| name             | string | null:false               |
-| name kana        | string | null:false               |
+|Column                      |Type      |Options                 |
+|--------------------------  |------- |------------------------- |
+| nickname        　         | string　| null:false　　　　　　　　  |
+| encrypted_password         | string | null:false               |
+| email                      | string | null:false,, unique: true|
+| date_of_birth              | date   | null:false               |
+| double_byte_first_name     | string | null:false               |
+| double_byte_last_name      | string | null:false               |
+| double_byte_first_name_kana| string | null:false               |
+| double_byte_last_name_kana | string | null: false              |
 
-##アソシエーション
+###アソシエーション
 has_many :items
 has_many :buys
 
 ## itemsテーブル
 
-|Column            |Type    |Options                            |
-|----------------- |----------- |------------------------------ |
-| user             | references | null:false, foreign_key: true |
-| password         | string     | null:false                    |
-| email            | string     | null:false                    |
-| confirm password | string     | null:false                    | 
-| date of birth    | string     | null:false                    |
-| name             | string     | null:false                    |
-| name kana        | string     | null:false                    |
-
+|Column                     |Type         |Options                         |
+|-------------------------- |------------ |------------------------------- |
+| user                      | references  | null:false, foreign_key: true  |
+| category_id               | integer     | null: false                    |
+| condition_id              | integer     | null: false                    |
+| shipping_cost_id          | integer     | null: false                    |
+| area_of_origin_id         | integer     | null: false                    |
+| estimated_sipping_date_id | integer     | null: false                    |
+| selling_price             | integer     | null: false                    |
+| name                      | string      | null: false                    |
+| detail                    | text        | null: false                    |
 ##アソシエーション
-has_many :buys
+has_one :buy
 belongs_to :user
 
 ## buysテーブル
@@ -59,22 +61,22 @@ belongs_to :user
 |Column            |Type    |Options                            |
 |----------------- |----------- |------------------------------ |
 | user             | references | null:false, foreign_key: true |
-| address          | string     | null:false                    |
+| item             | references | null:false, foreign_key: true |
 
 ##アソシエーション
-has_many :items
+belongs_to :item
 belongs_to :user
-belongs_to :address
+has_one :address
 
 ## addressesテーブル
 |Column            |Type    |Options                            |
 |----------------- |----------- |------------------------------ |
 | municipality     | string     | null:false,                   |
-| prefectures      | string     | null:false                    |
+| area_of_origin_id| integer    | null:false                    |
 | address          | string     | null:false                    |
 | post_code        | string     | null:false                    | 
 | telephone_number | string     | null:false                    |
-| building_name    | string     | null:false                    |
-
+| building_name    | string     |                               |
+| buy              | references | null: false, foreign_key: true|
 ##アソシエーション
 belongs_to :buy
