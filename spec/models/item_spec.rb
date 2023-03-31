@@ -33,27 +33,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Detail can't be blank")
       end
       it 'カテゴリーの情報が[---]だと登録できない。' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category Select")
       end
       it '商品の状態のが[---]だと登録できない。' do
-        @item.condition_id = ''
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition Select")
       end
       it '配送料の負担の情報が[---]だと登録できない。' do
-        @item.shipping_cost_id = ''
+        @item.shipping_cost_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping cost Select")
       end
       it "発送元の地域の情報が[---]だと登録できない。" do
-        @item.area_of_origin_id = ''
+        @item.area_of_origin_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Area of origin Select")
       end
       it "発送までの日数の情報が[---]だと登録できない。" do
-        @item.estimated_sipping_date_id = ''
+        @item.estimated_sipping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Estimated sipping date Select")
       end
