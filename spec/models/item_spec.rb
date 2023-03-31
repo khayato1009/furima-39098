@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
       it "価格の情報が必須であること。" do
         @item.selling_price  = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Selling price is not a number")
+        expect(@item.errors.full_messages).to include("Selling price Please enter with in the numeric range")
       end
 
       it '価格が300円未満では出品できない' do

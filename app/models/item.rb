@@ -9,9 +9,7 @@ class Item < ApplicationRecord
   belongs_to :estimated_sipping_date
   
   
-  validates :image,                        presence: true
-  validates :name,                         presence: true
-  validates :detail,                       presence: true
+                    
   validates :category_id ,                 numericality: { other_than: 1, message: 'Select'}
   validates :condition_id,                 numericality: { other_than: 1, message: 'Select'}
   validates :shipping_cost_id,             numericality: { other_than: 1, message: 'Select'}
@@ -19,8 +17,11 @@ class Item < ApplicationRecord
   validates :estimated_sipping_date_id,    numericality: { other_than: 1, message: 'Select'}
 
   with_options presence: true do 
-    validates :selling_price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999},
-    presence: { message: "can't be blank "}
+   validates :image                                          
+   validates :name                       
+   validates :detail   
+   validates :selling_price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999},
+   presence: { message: "Please enter with in the numeric range"}
   end                   
  
 end
