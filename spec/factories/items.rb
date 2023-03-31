@@ -1,10 +1,11 @@
 FactoryBot.define do
   factory :item do
-    after(:image) do |item|
-    item.images.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png', content_type: 'image/png')
+    after(:build) do |item|
+    item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end
 
    name                      {Faker::Name.initials(number: 2)}
+   
    detail                    {'2'}
    category_id               {'3'}
    condition_id              {'2'}
