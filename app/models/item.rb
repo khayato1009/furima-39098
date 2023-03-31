@@ -8,8 +8,9 @@ class Item < ApplicationRecord
   belongs_to :area_of_origin
   belongs_to :estimated_sipping_date
   
+  
   validates :image,                        numericality: { other_than: 1, message: 'Select'}
-  validates :name,                         numericality: { other_than: 1, message: 'Select'}
+  validates :name,                         presence: true
   validates :detail,                       numericality: { other_than: 1, message: 'Select'}
   validates :category_id ,                 numericality: { other_than: 1, message: 'Select'}
   validates :condition_id,                 numericality: { other_than: 1, message: 'Select'}
