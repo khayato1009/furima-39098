@@ -24,9 +24,9 @@ Things you may want to cover:
 * ...
 ## usersテーブル
 
-|Column                      |Type      |Options                 |
-|--------------------------  |------- |------------------------- |
-| nickname        　         | string　| null: false　　　　　　　　  |
+|Column                      |Type    |Options                    |
+|--------------------------- |------- |-------------------------- |
+| nickname                   | string | null: false               |
 | encrypted_password         | string | null: false               | 
 | email                      | string | null: false, unique: true |
 | date_of_birth              | date   | null: false               |
