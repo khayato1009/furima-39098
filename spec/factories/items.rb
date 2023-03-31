@@ -5,7 +5,6 @@ FactoryBot.define do
     end
 
    name                      {Faker::Name.initials(number: 2)}
-   estimated_sipping_date_id {""}
    detail                    {'2'}
    category_id               {'3'}
    condition_id              {'2'}
