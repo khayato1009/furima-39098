@@ -1,12 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:edit]
+  before_action :set_item, only: [:edit, :show, :update]
   before_action :move_to_edit, only: :edit
   
   
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -26,11 +24,11 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
+    
   end
 
   def edit
-    @item = Item.find(params[:id])
+
   end
 
   def update
@@ -51,7 +49,9 @@ class ItemsController < ApplicationController
                                  :estimated_sipping_date_id, :selling_price, :name, :detail).merge(user_id: current_user.id)
   end
 
-  
+  def set_item
+    @item = Item.find(params[:id])
+  end
  
 
 
