@@ -3,6 +3,7 @@ class BuyAddress
   attr_accessor :municipality, :area_of_origin_id, :address, :post_code, :telephone_number, :building_name, :user_id, :item_id 
 
   with_options presence: true do
+    validates :municipality
     validates :user_id
     validates :item_id
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
@@ -10,7 +11,7 @@ class BuyAddress
     validates :address
     validates :telephone_number, format: {with: /\A[0-9]{11}\z/ }
   end
-  validates  municipality: {other_than: 0, message: "can't be blank"}
+  
   def save
     buy = Buy.create(item_id: item_id, user_id: user_id)
     
