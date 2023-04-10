@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order(created_at: :desc)
+   
   end
 
   def new
@@ -59,9 +60,10 @@ class ItemsController < ApplicationController
 
 
   def move_to_edit
-    if current_user.id != @item.user_id
+    if current_user.id != @item.user_id || @item.buy.present?
       redirect_to action: :index
     end
   end
 
+ 
 end
