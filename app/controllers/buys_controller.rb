@@ -3,11 +3,9 @@ class BuysController < ApplicationController
   before_action :non_purchased_item, only: [:index, :create]
   def index
     @buy_address = BuyAddress.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @buy_address = BuyAddress.new(buy_params)
     if @buy_address.valid?
       pay_item

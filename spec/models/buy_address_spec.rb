@@ -30,9 +30,9 @@ RSpec.describe BuyAddress, type: :model do
         expect(@buy_address.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
       end
       it 'area_of_origin_idを選択していないと保存できないこと' do
-        @buy_address.area_of_origin_id = 0
+        @buy_address.area_of_origin_id = 1
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include()
+        expect(@buy_address.errors.full_messages).to include("Area of origin Select")
       end
       it 'municipalityが空だと保存できないこと' do
         @buy_address.municipality = ''
@@ -64,6 +64,19 @@ RSpec.describe BuyAddress, type: :model do
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include("Telephone number is invalid")
       end
+      it 'user_id（購入者）が空だと購入できない' do
+        @buy_address.user_id = ''
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_id（購入商品）が空だと購入できない' do
+        @buy_address.item_id = ''
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("Item can't be blank")
+      end
+      
+      
+
       it "tokenが空では登録できないこと" do
         @buy_address.token = nil
         @buy_address.valid?

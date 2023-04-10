@@ -6,7 +6,6 @@ FactoryBot.define do
     post_code {'123-4567'}
     telephone_number {'09087678787'}
     token {"tok_abcdefghijk00000000000000000"}
-    association :user
-    association :item
+    building_name {"ドミトリー"}
   end
 end
