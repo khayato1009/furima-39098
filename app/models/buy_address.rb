@@ -6,8 +6,8 @@ class BuyAddress
     validates :municipality
     validates :user_id
     validates :item_id
-    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :area_of_origin_id,numericality: { other_than: 1, message: 'Select' }
+    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "はハイフン(-)を含む"}
+    validates :area_of_origin_id,numericality: { other_than: 1, message: 'を選択してください' }
     validates :address
     validates :telephone_number, format: {with: /\A[0-9]{10,11}\z/ }
     validates :token
