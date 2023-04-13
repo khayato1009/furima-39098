@@ -20,7 +20,7 @@ test:
   database: furima_39098_test
 
 
-  production:
+production:
   <<: *default
   adapter: mysql2
   database: furima_39098_production
